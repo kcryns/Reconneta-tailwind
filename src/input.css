@@ -1,0 +1,96 @@
+@import url("https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@400;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  max-width: 75rem;
+}
+
+html {
+  overflow-x: hidden;
+}
+
+@layer components {
+  .btn {
+    display: inline-block;
+    padding: 8px 20px;
+    font-size: 1.1rem;
+    font-weight: 700;
+  }
+  .btn:hover {
+    background-color: #272727;
+    color: #ffffff;
+  }
+
+  .toggle__menu span {
+    width: 24px;
+    height: 4px;
+    background-color: #000000;
+    display: block;
+    border-radius: 2px;
+    transition: 300ms;
+  }
+
+  .toggle__menu span:nth-child(2) {
+    margin: 0.25rem 0;
+  }
+  .toggle__menu.open span:first-child {
+    @apply translate-x-0 translate-y-[3px] w-[1rem] rotate-[140deg] ease-out duration-[.5];
+  }
+  .toggle__menu.open span:nth-child(2) {
+    @apply rotate-[180deg];
+  }
+  .toggle__menu.open span:last-child {
+    @apply translate-x-0 translate-y-[-3px] w-[1rem] rotate-[220deg] ease-out duration-[.5];
+  }
+
+  .header .header__nav {
+    @apply w-[55%] h-[94vh] left-[-55%] shadow-md  ease-in duration-300 overflow-y-scroll;
+  }
+  .header .header__nav.open {
+    @apply left-0 ease-in duration-300;
+  }
+
+  .header .header__nav ul li a {
+    @apply text-[#272727] text-[.9rem] font-[600];
+  }
+  .header .header__nav ul li a i {
+    @apply text-[.8rem] font-[800];
+  }
+  .header .li__title {
+    @apply flex justify-between items-center;
+  }
+  .header .li__title span {
+    @apply w-[2rem] h-[2rem] rounded-full bg-[#e5e5e5] flex justify-center items-center;
+  }
+  .header .header__nav ul li:hover {
+    @apply bg-[#272727];
+  }
+  .header .header__nav ul li:hover a {
+    @apply text-white;
+  }
+  .header .header__nav ul li:hover .li__title span {
+    @apply bg-[#232323] hover:bg-white;
+  }
+  .header .header__nav ul li.active {
+    @apply bg-[#272727];
+  }
+  .header .header__nav ul li.active a {
+    @apply text-white;
+  }
+  .header .header__nav ul li.active .li__title span {
+    @apply bg-[#232323];
+  }
+  .header__nav .li__content.open {
+    @apply block ease-in duration-300;
+  }
+
+  .li__content ul li {
+    @apply py-[.3rem] px-[1.5rem];
+  }
+}
